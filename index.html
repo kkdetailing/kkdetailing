@@ -468,6 +468,16 @@
       text-align: center;
     }
 
+    .pkg-surcharge {
+      font-size: 0.73rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      margin-bottom: 1rem;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
     /* ── HOW IT WORKS ── */
     #how { background: var(--dark); }
 
@@ -596,57 +606,86 @@
 
     .booking-inner h2 { margin-bottom: 0.6rem; }
 
-    .form-group {
+    .booking-buttons {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      text-align: left;
-      margin-bottom: 1rem;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1rem 1.8rem;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-social:hover { transform: translateY(-2px); opacity: 0.92; }
+
+    .btn-facebook {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .btn-instagram {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+    }
+
+    .btn-social svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .booking-note {
+      margin-top: 1.4rem;
+      font-size: 0.8rem;
       color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .booking-or {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       font-family: 'DM Mono', monospace;
     }
+    .booking-or::before, .booking-or::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
-    input, select, textarea {
-      background: var(--card);
-      border: 1px solid var(--border);
+    .btn-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
       border-radius: var(--radius);
-      color: var(--white);
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      padding: 0.75rem 1rem;
-      outline: none;
-      width: 100%;
-      transition: border-color 0.2s;
-      -webkit-appearance: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      color: var(--white);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
     }
-
-    input::placeholder, textarea::placeholder { color: var(--muted); }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--gold);
-    }
-
-    select option { background: #1a1a1a; }
-
-    textarea { resize: vertical; min-height: 90px; }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.8rem;
-    }
+    .btn-call:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
     footer {
@@ -722,7 +761,6 @@
   <nav>
     <a href="#" class="nav-logo">KK<span> Detailing Hamilton</span></a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#booking" class="nav-cta">Book Now</a></li>
@@ -758,45 +796,6 @@
     <div class="hero-line"></div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-tag">// What We Do</div>
-    <h2>Our Services</h2>
-    <p class="section-intro">From a quick exterior wash to a full interior & exterior detail — we handle it all at your location.</p>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <span class="service-icon">🚿</span>
-        <div class="service-name">Exterior Wash</div>
-        <p class="service-desc">Full hand wash, rinse, wheel & tyre clean, windows, and streak-free dry. Your car, gleaming.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🧹</span>
-        <div class="service-name">Interior Clean</div>
-        <p class="service-desc">Vacuuming, dashboard & console wipe-down, door trims, glass, and odour treatment.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">✨</span>
-        <div class="service-name">Full Detail</div>
-        <p class="service-desc">Complete interior + exterior treatment. Clay bar, polish, wax, and deep interior clean for a showroom finish.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🛡️</span>
-        <div class="service-name">Paint Protection</div>
-        <p class="service-desc">Ceramic coating and sealant options to keep your paint shielded from the elements long-term.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🪑</span>
-        <div class="service-name">Upholstery & Carpet</div>
-        <p class="service-desc">Steam cleaning, stain removal, and deep shampoo for seats, carpets, and floor mats.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">🔄</span>
-        <div class="service-name">Maintenance Wash</div>
-        <p class="service-desc">Regular scheduled washes to keep your vehicle in top shape without the hassle. Set and forget.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- PACKAGES -->
   <section id="packages">
     <div class="section-tag">// Pricing</div>
@@ -822,6 +821,7 @@
             <li>Door Panel Wipe</li>
             <li>Steering Wheel Cleaning</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15 &nbsp;·&nbsp; 7 Seater +$30</div>
           <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
 
@@ -837,6 +837,7 @@
             <li>Interior UV Protection / Shining</li>
             <li>Kick Plate Cleaning</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15 &nbsp;·&nbsp; 7 Seater +$30</div>
           <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
 
@@ -854,6 +855,7 @@
             <li>Leather Care &amp; Conditioning</li>
             <li>Steam Sanitisation</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15 &nbsp;·&nbsp; 7 Seater +$30</div>
           <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
       </div>
@@ -875,6 +877,7 @@
             <li>Quick Towel Dry</li>
             <li>Tyre Shine Dressing</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15</div>
           <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
 
@@ -891,6 +894,7 @@
             <li>Bug &amp; Tar Spot Removal</li>
             <li>Detailed Exterior Window Clean</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15</div>
           <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
 
@@ -906,16 +910,11 @@
             <li>Exterior Clay Bar Sponge</li>
             <li>Detailed Exterior Plastic &amp; Trim Dressing</li>
           </ul>
+          <div class="pkg-surcharge">SUV / Wagon / UTE +$15</div>
           <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Now</a>
         </div>
       </div>
 
-    </div>
-
-    <!-- Vehicle size surcharges -->
-    <div class="pkg-sizing-note reveal">
-      <strong>Vehicle Size Surcharges</strong><br>
-      SUV, Wagon, UTE: +$15 per service &nbsp;·&nbsp; 7 Seater: +$30 for interior services
     </div>
 
     <!-- Disclaimer -->
@@ -968,75 +967,33 @@
   <!-- BOOKING -->
   <section id="booking">
     <div class="booking-inner">
-      <div class="section-tag">// Book Online</div>
+      <div class="section-tag">// Book Now</div>
       <h2>Ready to Book?</h2>
-      <p class="section-intro" style="margin:0 auto 2rem;">Fill in your details below and we'll confirm your booking within a few hours.</p>
+      <p class="section-intro" style="margin: 0 auto 0.5rem;">Message us directly and we'll get back to you fast. Pick your preferred platform below.</p>
 
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="John" required />
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" placeholder="+64 21 000 0000" required />
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="john@example.com" required />
-        </div>
-        <div class="form-group">
-          <label>Your Address (Hamilton)</label>
-          <input type="text" placeholder="123 Victoria Street, Hamilton" required />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Package</label>
-            <select required>
-              <option value="" disabled selected>Select package</option>
-              <optgroup label="Interior">
-                <option>Quick Interior – $59</option>
-                <option>Essential Interior – $75</option>
-                <option>Complete Interior – $120</option>
-              </optgroup>
-              <optgroup label="Exterior">
-                <option>Quick Exterior – $59</option>
-                <option>Essential Exterior – $75</option>
-                <option>Complete Exterior – $99</option>
-              </optgroup>
-              <option>Custom / Ask me</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Vehicle Type</label>
-            <select required>
-              <option value="" disabled selected>Select type</option>
-              <option>Sedan / Hatchback</option>
-              <option>SUV / 4WD</option>
-              <option>Ute / Truck</option>
-              <option>Van / People Mover</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Preferred Date & Time</label>
-          <input type="datetime-local" required />
-        </div>
-        <div class="form-group">
-          <label>Notes (optional)</label>
-          <textarea placeholder="Any specific concerns, pet hair, stains, etc."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%; font-size:1rem; padding:1rem;">
-          Submit Booking Request
-        </button>
-        <p class="form-note">We'll confirm via phone or email within a few hours. No payment required upfront.</p>
-      </form>
+      <div class="booking-buttons">
+        <!-- Facebook Messenger — replace YOUR_PAGE_NAME with your Facebook page username -->
+        <a href="https://m.me/kkdetailinghamilton" target="_blank" rel="noopener" class="btn-social btn-facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.243 2 11.5c0 2.887 1.345 5.47 3.47 7.23V22l3.178-1.748A10.6 10.6 0 0 0 12 20.5c5.523 0 10-4.243 10-9.5S17.523 2 12 2zm1.07 12.77-2.56-2.73-5.01 2.73 5.52-5.86 2.62 2.73 4.95-2.73-5.52 5.86z"/></svg>
+          Message on Facebook
+        </a>
+
+        <div class="booking-or">or</div>
+
+        <!-- Instagram DM — replace kkdetailinghamilton with your Instagram handle -->
+        <a href="https://ig.me/m/kkdetailinghamilton" target="_blank" rel="noopener" class="btn-social btn-instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          Message on Instagram
+        </a>
+
+        <div class="booking-or">or call us</div>
+
+        <a href="tel:+64212710603" class="btn-call">
+          📞 021 271 0603
+        </a>
+      </div>
+
+      <p class="booking-note">We typically reply within a few hours. Let us know your preferred package, address, and date and we'll sort everything from there.</p>
     </div>
   </section>
 
@@ -1050,7 +1007,6 @@
       <div class="footer-links">
         <h4>Navigate</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
           <li><a href="#packages">Packages</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#booking">Book Now</a></li>
@@ -1062,7 +1018,7 @@
           <li><a href="tel:+64212710603">021 271 0603</a></li>
           <li><a href="mailto:hello@kkdetailing.co.nz">hello@kkdetailing.co.nz</a></li>
           <li><a href="#">Hamilton, NZ</a></li>
-          <li><a href="#">Mon–Sat, 7am – 6pm</a></li>
+          <li><a href="#">Mon–Fri, 7am – 3pm</a></li>
         </ul>
       </div>
     </div>
@@ -1090,16 +1046,6 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => obs.observe(el));
-
-    // Booking form
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type=submit]');
-      btn.textContent = '✓ Request Sent!';
-      btn.style.background = '#2a6e2a';
-      btn.disabled = true;
-      setTimeout(() => { btn.textContent = 'Submit Booking Request'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 4000);
-    }
 
     // Active nav highlight on scroll
     const sections = document.querySelectorAll('section[id]');
