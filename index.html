@@ -131,9 +131,10 @@
       background: rgba(78,33,255,0.10);
       border: 1px solid rgba(78,33,255,0.30);
       color: var(--gold);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       padding: 0.4rem 1rem;
       border-radius: 100px;
@@ -323,6 +324,31 @@
     /* ── PACKAGES ── */
     #packages { background: var(--black); }
 
+    .pkg-category-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      letter-spacing: 0.1em;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .pkg-category-title .cat-icon { font-size: 1.4rem; }
+
+    .packages-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 860px) {
+      .packages-two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .pkg-col { display: flex; flex-direction: column; gap: 1rem; }
+
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -333,11 +359,11 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 2.2rem 2rem;
+      padding: 2rem 1.8rem;
       position: relative;
       transition: border-color 0.25s, transform 0.2s;
     }
-    .pkg-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); }
+    .pkg-card:hover { border-color: rgba(78,33,255,0.5); transform: translateY(-4px); }
 
     .pkg-card.featured {
       border-color: var(--gold);
@@ -348,11 +374,11 @@
       position: absolute;
       top: -1px; right: 1.5rem;
       background: var(--gold);
-      color: var(--black);
-      font-family: 'DM Mono', monospace;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
       font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.25rem 0.8rem;
       border-radius: 0 0 6px 6px;
@@ -364,44 +390,43 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .pkg-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
+      font-size: 1.7rem;
       letter-spacing: 0.06em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .pkg-price {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.2rem;
+      font-size: 3rem;
       color: var(--gold);
       letter-spacing: 0.02em;
       line-height: 1;
     }
-    .pkg-price span { font-size: 1.4rem; vertical-align: super; }
-    .pkg-price sub { font-size: 1rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0; }
+    .pkg-price span { font-size: 1.3rem; vertical-align: super; }
 
     .pkg-divider {
       border: none;
       border-top: 1px solid var(--border);
-      margin: 1.4rem 0;
+      margin: 1.2rem 0;
     }
 
     .pkg-features {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
-      margin-bottom: 1.8rem;
+      gap: 0.55rem;
+      margin-bottom: 1.6rem;
     }
     .pkg-features li {
       display: flex;
       align-items: flex-start;
       gap: 0.6rem;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--muted);
     }
     .pkg-features li::before {
@@ -417,6 +442,30 @@
       color: var(--muted);
       margin-bottom: 1.4rem;
       font-style: italic;
+    }
+
+    .pkg-sizing-note {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      margin-top: 0.5rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .pkg-sizing-note strong { color: var(--white); font-weight: 600; }
+
+    .pkg-legal {
+      margin-top: 1.8rem;
+      background: rgba(78,33,255,0.06);
+      border: 1px solid rgba(78,33,255,0.2);
+      border-radius: 10px;
+      padding: 1.2rem 1.6rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
     }
 
     /* ── HOW IT WORKS ── */
@@ -485,7 +534,7 @@
       padding: 1.8rem;
       transition: border-color 0.25s;
     }
-    .review-card:hover { border-color: rgba(201,168,76,0.3); }
+    .review-card:hover { border-color: rgba(78,33,255,0.3); }
 
     .review-stars {
       color: var(--gold);
@@ -671,7 +720,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">KK<span> Detailing</span></a>
+    <a href="#" class="nav-logo">KK<span> Detailing Hamilton</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
@@ -686,7 +735,7 @@
     <div style="position:relative; z-index:1;">
       <div class="hero-badge">📍 Mobile Service · Hamilton, NZ</div>
       <h1>KK Mobile Car Wash<br>&amp; <span class="gold">Interior Detailing</span></h1>
-      <p class="hero-sub">Premium mobile car wash & detailing — professional results at your home, office, or wherever you are.</p>
+      <p class="hero-sub">Professional mobile car wash, interior detailing, car grooming, steam cleaning and paint protection. We come to your home or office across Hamilton, NZ.</p>
       <div class="hero-actions">
         <a href="#booking" class="btn-primary">Book a Detail</a>
         <a href="#packages" class="btn-ghost">View Packages</a>
@@ -752,67 +801,127 @@
   <section id="packages">
     <div class="section-tag">// Pricing</div>
     <h2>Choose Your Package</h2>
-    <p class="section-intro">Transparent pricing, no hidden fees. Prices vary slightly by vehicle size — contact us for SUVs, vans, or trucks.</p>
-    <div class="packages-grid reveal">
+    <p class="section-intro">All prices are GST inclusive. Small car pricing shown below. See vehicle size surcharges at the bottom.</p>
 
-      <!-- BASIC -->
-      <div class="pkg-card">
-        <div class="pkg-tier">Tier 01</div>
-        <div class="pkg-name">Basic Wash</div>
-        <div class="pkg-price"><span>$</span>39<sub> /car</sub></div>
-        <hr class="pkg-divider" />
-        <ul class="pkg-features">
-          <li>Full exterior hand wash</li>
-          <li>Wheel & tyre clean</li>
-          <li>Window clean (exterior)</li>
-          <li>Streak-free hand dry</li>
-          <li>Interior vacuum</li>
-        </ul>
-        <p class="pkg-note">~45–60 min · Great for regular upkeep</p>
-        <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Basic</a>
+    <div class="packages-two-col reveal">
+
+      <!-- ── INTERIOR ── -->
+      <div class="pkg-col">
+        <div class="pkg-category-title"><span class="cat-icon">🧹</span> Interior</div>
+
+        <!-- Quick Interior -->
+        <div class="pkg-card">
+          <div class="pkg-tier">Interior · Level 1</div>
+          <div class="pkg-name">Quick Interior</div>
+          <div class="pkg-price"><span>$</span>59</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Interior Vacuum</li>
+            <li>Dashboard &amp; Console Dusting / Wiping</li>
+            <li>Interior Window Cleaning</li>
+            <li>Door Panel Wipe</li>
+            <li>Steering Wheel Cleaning</li>
+          </ul>
+          <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
+
+        <!-- Essential Interior -->
+        <div class="pkg-card">
+          <div class="pkg-tier">Interior · Level 2</div>
+          <div class="pkg-name">Essential Interior</div>
+          <div class="pkg-price"><span>$</span>75</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Includes All Quick Interior Services</li>
+            <li>Detailed Vacuuming (Vents, Pockets, Crevices)</li>
+            <li>Interior UV Protection / Shining</li>
+            <li>Kick Plate Cleaning</li>
+          </ul>
+          <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
+
+        <!-- Complete Interior -->
+        <div class="pkg-card featured">
+          <div class="pkg-badge">Most Thorough</div>
+          <div class="pkg-tier">Interior · Level 3</div>
+          <div class="pkg-name">Complete Interior</div>
+          <div class="pkg-price"><span>$</span>120</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Includes All Essential Interior Services</li>
+            <li>Full Seat Shampooing</li>
+            <li>Stain Extraction</li>
+            <li>Leather Care &amp; Conditioning</li>
+            <li>Steam Sanitisation</li>
+          </ul>
+          <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
       </div>
 
-      <!-- PREMIUM -->
-      <div class="pkg-card featured">
-        <div class="pkg-badge">Most Popular</div>
-        <div class="pkg-tier">Tier 02</div>
-        <div class="pkg-name">Premium Detail</div>
-        <div class="pkg-price"><span>$</span>99<sub> /car</sub></div>
-        <hr class="pkg-divider" />
-        <ul class="pkg-features">
-          <li>Everything in Basic Wash</li>
-          <li>Full interior wipe-down</li>
-          <li>Dashboard, console & trims</li>
-          <li>Interior glass clean</li>
-          <li>Tyre shine dressing</li>
-          <li>Air freshener</li>
-        </ul>
-        <p class="pkg-note">~2–2.5 hrs · Inside & out perfection</p>
-        <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Premium</a>
-      </div>
+      <!-- ── EXTERIOR ── -->
+      <div class="pkg-col">
+        <div class="pkg-category-title"><span class="cat-icon">✨</span> Exterior</div>
 
-      <!-- FULL DETAIL -->
-      <div class="pkg-card">
-        <div class="pkg-tier">Tier 03</div>
-        <div class="pkg-name">Full Detail</div>
-        <div class="pkg-price"><span>$</span>179<sub> /car</sub></div>
-        <hr class="pkg-divider" />
-        <ul class="pkg-features">
-          <li>Everything in Premium Detail</li>
-          <li>Clay bar decontamination</li>
-          <li>Machine polish (light correction)</li>
-          <li>Carnauba wax protection</li>
-          <li>Carpet & upholstery shampoo</li>
-          <li>Engine bay wipe-down</li>
-        </ul>
-        <p class="pkg-note">~4–5 hrs · The full treatment</p>
-        <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Full Detail</a>
+        <!-- Quick Exterior -->
+        <div class="pkg-card">
+          <div class="pkg-tier">Exterior · Level 1</div>
+          <div class="pkg-name">Quick Exterior</div>
+          <div class="pkg-price"><span>$</span>59</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Foam Pre-Soak</li>
+            <li>Hand Wash</li>
+            <li>Two-Bucket Method Washing</li>
+            <li>Quick Towel Dry</li>
+            <li>Tyre Shine Dressing</li>
+          </ul>
+          <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
+
+        <!-- Essential Exterior -->
+        <div class="pkg-card">
+          <div class="pkg-tier">Exterior · Level 2</div>
+          <div class="pkg-name">Essential Exterior</div>
+          <div class="pkg-price"><span>$</span>75</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Includes All Quick Exterior Services</li>
+            <li>Wheel &amp; Brake Dust Cleaning</li>
+            <li>Spray Wax Application</li>
+            <li>Bug &amp; Tar Spot Removal</li>
+            <li>Detailed Exterior Window Clean</li>
+          </ul>
+          <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
+
+        <!-- Complete Exterior -->
+        <div class="pkg-card featured">
+          <div class="pkg-badge">Most Thorough</div>
+          <div class="pkg-tier">Exterior · Level 3</div>
+          <div class="pkg-name">Complete Exterior</div>
+          <div class="pkg-price"><span>$</span>99</div>
+          <hr class="pkg-divider" />
+          <ul class="pkg-features">
+            <li>Includes All Essential Exterior Services</li>
+            <li>Exterior Clay Bar Sponge</li>
+            <li>Detailed Exterior Plastic &amp; Trim Dressing</li>
+          </ul>
+          <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Now</a>
+        </div>
       </div>
 
     </div>
-    <p style="margin-top:1.4rem; font-size:0.8rem; color:var(--muted); text-align:center;">
-      SUVs / Vans / Trucks add $20–$40 · Custom quotes available · <a href="#booking" style="color:var(--gold); text-decoration:none;">Contact us</a>
-    </p>
+
+    <!-- Vehicle size surcharges -->
+    <div class="pkg-sizing-note reveal">
+      <strong>Vehicle Size Surcharges</strong><br>
+      SUV, Wagon, UTE: +$15 per service &nbsp;·&nbsp; 7 Seater: +$30 for interior services
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="pkg-legal reveal">
+      Extra charges may apply for excessive dirt or pet hair. Final price will always be confirmed with you before we start. All prices are GST inclusive. Fully Insured · Public Liability.
+    </div>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -891,9 +1000,16 @@
             <label>Package</label>
             <select required>
               <option value="" disabled selected>Select package</option>
-              <option>Basic Wash – $39</option>
-              <option>Premium Detail – $99</option>
-              <option>Full Detail – $179</option>
+              <optgroup label="Interior">
+                <option>Quick Interior – $59</option>
+                <option>Essential Interior – $75</option>
+                <option>Complete Interior – $120</option>
+              </optgroup>
+              <optgroup label="Exterior">
+                <option>Quick Exterior – $59</option>
+                <option>Essential Exterior – $75</option>
+                <option>Complete Exterior – $99</option>
+              </optgroup>
               <option>Custom / Ask me</option>
             </select>
           </div>
@@ -943,7 +1059,7 @@
       <div class="footer-links">
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+6421000000">+64 21 000 0000</a></li>
+          <li><a href="tel:+64212710603">021 271 0603</a></li>
           <li><a href="mailto:hello@kkdetailing.co.nz">hello@kkdetailing.co.nz</a></li>
           <li><a href="#">Hamilton, NZ</a></li>
           <li><a href="#">Mon–Sat, 7am – 6pm</a></li>
