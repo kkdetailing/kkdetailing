@@ -14,13 +14,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:   #080808;
-      --dark:    #111111;
-      --card:    #161616;
-      --border:  #242424;
-      --mid:     #2a2a2a;
-      --gold:    #3003fc;
-      --gold2:   #5533ff;
+      --black:   #141414;
+      --dark:    #1a1a1a;
+      --card:    #1e1e1e;
+      --border:  #2e2e2e;
+      --mid:     #333333;
+      --gold:    #4e21ff;
+      --gold2:   #6b3fff;
       --white:   #f5f5f0;
       --muted:   #888880;
       --radius:  6px;
@@ -113,8 +113,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(48,3,252,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(48,3,252,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(78,33,255,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(78,33,255,0.05) 0%, transparent 60%);
     }
 
     .hero-line {
@@ -128,8 +128,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(48,3,252,0.10);
-      border: 1px solid rgba(48,3,252,0.30);
+      background: rgba(78,33,255,0.10);
+      border: 1px solid rgba(78,33,255,0.30);
       color: var(--gold);
       font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
@@ -341,7 +341,7 @@
 
     .pkg-card.featured {
       border-color: var(--gold);
-      background: linear-gradient(135deg, #0a0820 0%, var(--card) 100%);
+      background: linear-gradient(135deg, #0d0a20 0%, var(--card) 100%);
     }
 
     .pkg-badge {
@@ -849,86 +849,10 @@
     <div class="section-tag">// Google Reviews</div>
     <h2>What Clients Say</h2>
     <p class="section-intro">Real feedback from real customers. We let the work speak for itself.</p>
-    <div class="reviews-grid reveal">
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Absolutely stoked with the result. My car hadn't been properly cleaned in months and they made it look brand new. Super easy to book and they arrived right on time."</p>
-        <div class="review-author">
-          <div class="review-avatar">JM</div>
-          <div>
-            <div class="review-name">James M.</div>
-            <div class="review-date">2 weeks ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Got the Premium Detail done on my SUV. Interior was disgusting (kids…) and they got it spotless. Will 100% be booking again. The mobile service is a game changer."</p>
-        <div class="review-author">
-          <div class="review-avatar">SC</div>
-          <div>
-            <div class="review-name">Sarah C.</div>
-            <div class="review-date">1 month ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Incredible attention to detail. Had the full detail package done on my Audi and it's never looked this good. Great communication, professional team, fair pricing."</p>
-        <div class="review-author">
-          <div class="review-avatar">RT</div>
-          <div>
-            <div class="review-name">Ryan T.</div>
-            <div class="review-date">3 weeks ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Booked a basic wash just to try it out — immediately booked the premium for next week. Honestly didn't expect this level of quality for the price. Highly recommend."</p>
-        <div class="review-author">
-          <div class="review-avatar">LP</div>
-          <div>
-            <div class="review-name">Lisa P.</div>
-            <div class="review-date">5 days ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Pulled up to my driveway and did an amazing job. Car smells fresh, looks immaculate. Wouldn't hesitate to recommend KK to anyone in Hamilton."</p>
-        <div class="review-author">
-          <div class="review-avatar">BK</div>
-          <div>
-            <div class="review-name">Ben K.</div>
-            <div class="review-date">2 months ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Used them twice now. Consistent, professional, and always happy with the result. Love that they come to me — saves so much time. These guys are the real deal."</p>
-        <div class="review-author">
-          <div class="review-avatar">NK</div>
-          <div>
-            <div class="review-name">Nikita K.</div>
-            <div class="review-date">1 week ago</div>
-          </div>
-        </div>
-        <div class="google-logo">🇬 Google Review</div>
-      </div>
-
+    <div class="reveal">
+      <!-- Elfsight Google Reviews | KK Mobile Car Wash & Interior Detailing -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-01280bd5-119d-4487-8fdf-2a3e7a8f17ae" data-elfsight-app-lazy></div>
     </div>
   </section>
 
