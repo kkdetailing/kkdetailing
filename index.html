@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KK Mobile Car Wash & Detailing | Christchurch, NZ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #080808;
+      --dark:    #111111;
+      --card:    #161616;
+      --border:  #242424;
+      --mid:     #2a2a2a;
+      --gold:    #C9A84C;
+      --gold2:   #e8c870;
+      --white:   #f5f5f0;
+      --muted:   #888880;
+      --radius:  6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.5;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5vw;
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--white); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold2) !important; color: var(--black) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 5vw 4rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,168,76,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+    }
+
+    .hero-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.10);
+      border: 1px solid rgba(201,168,76,0.30);
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 11vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+
+    h1 .gold { color: var(--gold); }
+
+    .hero-sub {
+      margin-top: 1.6rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-actions {
+      margin-top: 2.8rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .hero-stats {
+      margin-top: 4rem;
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.6rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ── SECTIONS GENERAL ── */
+    section { padding: 5rem 5vw; }
+
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 520px;
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--dark); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .service-card:hover { background: #1a1a1a; }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── PACKAGES ── */
+    #packages { background: var(--black); }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .pkg-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.2rem 2rem;
+      position: relative;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .pkg-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); }
+
+    .pkg-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, #1a1810 0%, var(--card) 100%);
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -1px; right: 1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .pkg-tier {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .pkg-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .pkg-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.2rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .pkg-price span { font-size: 1.4rem; vertical-align: super; }
+    .pkg-price sub { font-size: 1rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0; }
+
+    .pkg-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.4rem 0;
+    }
+
+    .pkg-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.8rem;
+    }
+    .pkg-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .pkg-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .pkg-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--dark); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    .steps::after {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--black); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.25s;
+    }
+    .review-card:hover { border-color: rgba(201,168,76,0.3); }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: #c0c0b8;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .review-name { font-weight: 500; font-size: 0.88rem; }
+    .review-date { font-size: 0.72rem; color: var(--muted); }
+
+    .google-logo {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── BOOKING ── */
+    #booking {
+      background: var(--dark);
+      text-align: center;
+    }
+
+    .booking-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .booking-inner h2 { margin-bottom: 0.6rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    input, select, textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    select option { background: #1a1a1a; }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5vw 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand .nav-logo { font-size: 2rem; display: block; margin-bottom: 0.6rem; }
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); max-width: 280px; }
+
+    .footer-links h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .steps::after { display: none; }
+      .hero-stats { gap: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">KK<span> Detailing</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div style="position:relative; z-index:1;">
+      <div class="hero-badge">📍 Mobile Service · Christchurch, NZ</div>
+      <h1>We Come<br>To <span class="gold">You.</span></h1>
+      <p class="hero-sub">Premium mobile car wash & detailing — professional results at your home, office, or wherever you are.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">Book a Detail</a>
+        <a href="#packages" class="btn-ghost">View Packages</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">200+</div>
+          <div class="stat-lbl">Happy Clients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5★</div>
+          <div class="stat-lbl">Google Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Mobile Service</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-line"></div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">// What We Do</div>
+    <h2>Our Services</h2>
+    <p class="section-intro">From a quick exterior wash to a full interior & exterior detail — we handle it all at your location.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🚿</span>
+        <div class="service-name">Exterior Wash</div>
+        <p class="service-desc">Full hand wash, rinse, wheel & tyre clean, windows, and streak-free dry. Your car, gleaming.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧹</span>
+        <div class="service-name">Interior Clean</div>
+        <p class="service-desc">Vacuuming, dashboard & console wipe-down, door trims, glass, and odour treatment.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <div class="service-name">Full Detail</div>
+        <p class="service-desc">Complete interior + exterior treatment. Clay bar, polish, wax, and deep interior clean for a showroom finish.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <div class="service-name">Paint Protection</div>
+        <p class="service-desc">Ceramic coating and sealant options to keep your paint shielded from the elements long-term.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🪑</span>
+        <div class="service-name">Upholstery & Carpet</div>
+        <p class="service-desc">Steam cleaning, stain removal, and deep shampoo for seats, carpets, and floor mats.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔄</span>
+        <div class="service-name">Maintenance Wash</div>
+        <p class="service-desc">Regular scheduled washes to keep your vehicle in top shape without the hassle. Set and forget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <div class="section-tag">// Pricing</div>
+    <h2>Choose Your Package</h2>
+    <p class="section-intro">Transparent pricing, no hidden fees. Prices vary slightly by vehicle size — contact us for SUVs, vans, or trucks.</p>
+    <div class="packages-grid reveal">
+
+      <!-- BASIC -->
+      <div class="pkg-card">
+        <div class="pkg-tier">Tier 01</div>
+        <div class="pkg-name">Basic Wash</div>
+        <div class="pkg-price"><span>$</span>39<sub> /car</sub></div>
+        <hr class="pkg-divider" />
+        <ul class="pkg-features">
+          <li>Full exterior hand wash</li>
+          <li>Wheel & tyre clean</li>
+          <li>Window clean (exterior)</li>
+          <li>Streak-free hand dry</li>
+          <li>Interior vacuum</li>
+        </ul>
+        <p class="pkg-note">~45–60 min · Great for regular upkeep</p>
+        <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Basic</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-tier">Tier 02</div>
+        <div class="pkg-name">Premium Detail</div>
+        <div class="pkg-price"><span>$</span>99<sub> /car</sub></div>
+        <hr class="pkg-divider" />
+        <ul class="pkg-features">
+          <li>Everything in Basic Wash</li>
+          <li>Full interior wipe-down</li>
+          <li>Dashboard, console & trims</li>
+          <li>Interior glass clean</li>
+          <li>Tyre shine dressing</li>
+          <li>Air freshener</li>
+        </ul>
+        <p class="pkg-note">~2–2.5 hrs · Inside & out perfection</p>
+        <a href="#booking" class="btn-primary" style="display:block; text-align:center; width:100%;">Book Premium</a>
+      </div>
+
+      <!-- FULL DETAIL -->
+      <div class="pkg-card">
+        <div class="pkg-tier">Tier 03</div>
+        <div class="pkg-name">Full Detail</div>
+        <div class="pkg-price"><span>$</span>179<sub> /car</sub></div>
+        <hr class="pkg-divider" />
+        <ul class="pkg-features">
+          <li>Everything in Premium Detail</li>
+          <li>Clay bar decontamination</li>
+          <li>Machine polish (light correction)</li>
+          <li>Carnauba wax protection</li>
+          <li>Carpet & upholstery shampoo</li>
+          <li>Engine bay wipe-down</li>
+        </ul>
+        <p class="pkg-note">~4–5 hrs · The full treatment</p>
+        <a href="#booking" class="btn-ghost" style="display:block; text-align:center; width:100%;">Book Full Detail</a>
+      </div>
+
+    </div>
+    <p style="margin-top:1.4rem; font-size:0.8rem; color:var(--muted); text-align:center;">
+      SUVs / Vans / Trucks add $20–$40 · Custom quotes available · <a href="#booking" style="color:var(--gold); text-decoration:none;">Contact us</a>
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-tag">// Process</div>
+    <h2>How It Works</h2>
+    <p class="section-intro">Getting your car detailed shouldn't be complicated. Here's all it takes.</p>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Book Online</div>
+        <p class="step-desc">Pick your package, choose a date and time, and confirm your address.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">We Show Up</div>
+        <p class="step-desc">Our team arrives at your location fully equipped — no need to drive anywhere.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">We Detail</div>
+        <p class="step-desc">We get to work with professional products. You relax — or carry on with your day.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Drive Happy</div>
+        <p class="step-desc">Inspect the results, pay, and enjoy your immaculately clean vehicle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="section-tag">// Google Reviews</div>
+    <h2>What Clients Say</h2>
+    <p class="section-intro">Real feedback from real customers. We let the work speak for itself.</p>
+    <div class="reviews-grid reveal">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Absolutely stoked with the result. My car hadn't been properly cleaned in months and they made it look brand new. Super easy to book and they arrived right on time."</p>
+        <div class="review-author">
+          <div class="review-avatar">JM</div>
+          <div>
+            <div class="review-name">James M.</div>
+            <div class="review-date">2 weeks ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Got the Premium Detail done on my SUV. Interior was disgusting (kids…) and they got it spotless. Will 100% be booking again. The mobile service is a game changer."</p>
+        <div class="review-author">
+          <div class="review-avatar">SC</div>
+          <div>
+            <div class="review-name">Sarah C.</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Incredible attention to detail. Had the full detail package done on my Audi and it's never looked this good. Great communication, professional team, fair pricing."</p>
+        <div class="review-author">
+          <div class="review-avatar">RT</div>
+          <div>
+            <div class="review-name">Ryan T.</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Booked a basic wash just to try it out — immediately booked the premium for next week. Honestly didn't expect this level of quality for the price. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">LP</div>
+          <div>
+            <div class="review-name">Lisa P.</div>
+            <div class="review-date">5 days ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Pulled up to my driveway and did an amazing job. Car smells fresh, looks immaculate. Wouldn't hesitate to recommend KK to anyone in Christchurch."</p>
+        <div class="review-author">
+          <div class="review-avatar">BK</div>
+          <div>
+            <div class="review-name">Ben K.</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used them twice now. Consistent, professional, and always happy with the result. Love that they come to me — saves so much time. These guys are the real deal."</p>
+        <div class="review-author">
+          <div class="review-avatar">NK</div>
+          <div>
+            <div class="review-name">Nikita K.</div>
+            <div class="review-date">1 week ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking">
+    <div class="booking-inner">
+      <div class="section-tag">// Book Online</div>
+      <h2>Ready to Book?</h2>
+      <p class="section-intro" style="margin:0 auto 2rem;">Fill in your details below and we'll confirm your booking within a few hours.</p>
+
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+64 21 000 0000" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>Your Address (Christchurch)</label>
+          <input type="text" placeholder="123 Main Street, Riccarton" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Package</label>
+            <select required>
+              <option value="" disabled selected>Select package</option>
+              <option>Basic Wash – $39</option>
+              <option>Premium Detail – $99</option>
+              <option>Full Detail – $179</option>
+              <option>Custom / Ask me</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Vehicle Type</label>
+            <select required>
+              <option value="" disabled selected>Select type</option>
+              <option>Sedan / Hatchback</option>
+              <option>SUV / 4WD</option>
+              <option>Ute / Truck</option>
+              <option>Van / People Mover</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date & Time</label>
+          <input type="datetime-local" required />
+        </div>
+        <div class="form-group">
+          <label>Notes (optional)</label>
+          <textarea placeholder="Any specific concerns, pet hair, stains, etc."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; font-size:1rem; padding:1rem;">
+          Submit Booking Request
+        </button>
+        <p class="form-note">We'll confirm via phone or email within a few hours. No payment required upfront.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">KK<span> Detailing</span></a>
+        <p>Professional mobile car wash & detailing across Christchurch, NZ. We come to you.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+6421000000">+64 21 000 0000</a></li>
+          <li><a href="mailto:hello@kkdetailing.co.nz">hello@kkdetailing.co.nz</a></li>
+          <li><a href="#">Christchurch, NZ</a></li>
+          <li><a href="#">Mon–Sat, 7am – 6pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 KK Mobile Car Wash & Detailing. All rights reserved.</span>
+      <span>Built for Christchurch, NZ 🇳🇿</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+
+    // Booking form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.textContent = '✓ Request Sent!';
+      btn.style.background = '#2a6e2a';
+      btn.disabled = true;
+      setTimeout(() => { btn.textContent = 'Submit Booking Request'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 4000);
+    }
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
