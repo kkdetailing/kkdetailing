@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KK Mobile Car Wash & Detailing | Christchurch, NZ</title>
+  <title>KK Mobile Car Wash &amp; Interior Detailing | Hamilton, NZ</title>
+  <!-- Cache busting: always load fresh content -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -15,8 +19,8 @@
       --card:    #161616;
       --border:  #242424;
       --mid:     #2a2a2a;
-      --gold:    #C9A84C;
-      --gold2:   #e8c870;
+      --gold:    #3003fc;
+      --gold2:   #5533ff;
       --white:   #f5f5f0;
       --muted:   #888880;
       --radius:  6px;
@@ -109,8 +113,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(201,168,76,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(48,3,252,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(48,3,252,0.05) 0%, transparent 60%);
     }
 
     .hero-line {
@@ -124,8 +128,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(201,168,76,0.10);
-      border: 1px solid rgba(201,168,76,0.30);
+      background: rgba(48,3,252,0.10);
+      border: 1px solid rgba(48,3,252,0.30);
       color: var(--gold);
       font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
@@ -337,7 +341,7 @@
 
     .pkg-card.featured {
       border-color: var(--gold);
-      background: linear-gradient(135deg, #1a1810 0%, var(--card) 100%);
+      background: linear-gradient(135deg, #0a0820 0%, var(--card) 100%);
     }
 
     .pkg-badge {
@@ -680,8 +684,8 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div style="position:relative; z-index:1;">
-      <div class="hero-badge">📍 Mobile Service · Christchurch, NZ</div>
-      <h1>We Come<br>To <span class="gold">You.</span></h1>
+      <div class="hero-badge">📍 Mobile Service · Hamilton, NZ</div>
+      <h1>KK Mobile Car Wash<br>&amp; <span class="gold">Interior Detailing</span></h1>
       <p class="hero-sub">Premium mobile car wash & detailing — professional results at your home, office, or wherever you are.</p>
       <div class="hero-actions">
         <a href="#booking" class="btn-primary">Book a Detail</a>
@@ -901,7 +905,7 @@
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Pulled up to my driveway and did an amazing job. Car smells fresh, looks immaculate. Wouldn't hesitate to recommend KK to anyone in Christchurch."</p>
+        <p class="review-text">"Pulled up to my driveway and did an amazing job. Car smells fresh, looks immaculate. Wouldn't hesitate to recommend KK to anyone in Hamilton."</p>
         <div class="review-author">
           <div class="review-avatar">BK</div>
           <div>
@@ -955,8 +959,8 @@
           <input type="email" placeholder="john@example.com" required />
         </div>
         <div class="form-group">
-          <label>Your Address (Christchurch)</label>
-          <input type="text" placeholder="123 Main Street, Riccarton" required />
+          <label>Your Address (Hamilton)</label>
+          <input type="text" placeholder="123 Victoria Street, Hamilton" required />
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -1000,8 +1004,8 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">KK<span> Detailing</span></a>
-        <p>Professional mobile car wash & detailing across Christchurch, NZ. We come to you.</p>
+        <a href="#" class="nav-logo">KK<span> Mobile Detailing</span></a>
+        <p>Professional mobile car wash &amp; interior detailing across Hamilton, NZ. We come to you.</p>
       </div>
       <div class="footer-links">
         <h4>Navigate</h4>
@@ -1017,18 +1021,29 @@
         <ul>
           <li><a href="tel:+6421000000">+64 21 000 0000</a></li>
           <li><a href="mailto:hello@kkdetailing.co.nz">hello@kkdetailing.co.nz</a></li>
-          <li><a href="#">Christchurch, NZ</a></li>
+          <li><a href="#">Hamilton, NZ</a></li>
           <li><a href="#">Mon–Sat, 7am – 6pm</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 KK Mobile Car Wash & Detailing. All rights reserved.</span>
-      <span>Built for Christchurch, NZ 🇳🇿</span>
+      <span>© 2025 KK Mobile Car Wash &amp; Interior Detailing. All rights reserved.</span>
+      <span>Built for Hamilton, NZ 🇳🇿</span>
     </div>
   </footer>
 
   <script>
+    // ── CACHE BUSTER: append timestamp to all asset URLs so browser always loads fresh ──
+    (function() {
+      const v = Date.now();
+      document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
+        const attr = el.tagName === 'LINK' ? 'href' : 'src';
+        if (el[attr] && !el[attr].startsWith('http')) {
+          el[attr] = el[attr].split('?')[0] + '?v=' + v;
+        }
+      });
+    })();
+
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries) => {
