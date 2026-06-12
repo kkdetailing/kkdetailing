@@ -760,6 +760,92 @@
       color: var(--muted);
     }
 
+    /* ── BEFORE / AFTER GALLERY ── */
+    #gallery { background: var(--black); }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .ba-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ba-card:hover { border-color: rgba(78,33,255,0.5); transform: translateY(-3px); }
+
+    .ba-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.45s ease;
+      display: block;
+    }
+
+    .ba-card .img-before { opacity: 1; }
+    .ba-card .img-after  { opacity: 0; }
+
+    .ba-card.show-after .img-before { opacity: 0; }
+    .ba-card.show-after .img-after  { opacity: 1; }
+
+    /* label pill */
+    .ba-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+    .label-before {
+      background: rgba(0,0,0,0.65);
+      color: #ccc;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .label-after {
+      background: var(--gold);
+      color: #fff;
+      opacity: 0;
+    }
+    .ba-card.show-after .label-before { opacity: 0; }
+    .ba-card.show-after .label-after  { opacity: 1; }
+
+    /* tap hint on first card */
+    .ba-hint {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: rgba(0,0,0,0.6);
+      color: #aaa;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.4s;
+    }
+    .ba-card.show-after .ba-hint { opacity: 0; }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -801,6 +887,7 @@
     <a href="#" class="nav-logo">KK<span> Detailing Hamilton</span></a>
     <ul class="nav-links">
       <li><a href="#packages">Packages</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#booking" class="nav-cta">Book Now</a></li>
     </ul>
@@ -1003,6 +1090,67 @@
     </div>
   </section>
 
+  <!-- BEFORE / AFTER GALLERY -->
+  <section id="gallery">
+    <div class="section-tag">// Our Work</div>
+    <h2>Before &amp; After</h2>
+    <p class="section-intro">Tap any photo to see the transformation.</p>
+
+    <div class="ba-grid reveal">
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="1b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="1a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+        <span class="ba-hint">Tap to reveal</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="2b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="2a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="3b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="3a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="4b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="4a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="5b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="5a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="6b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="6a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="7b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="7a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
+    </div>
+  </section>
+
   <!-- BOOKING -->
   <section id="booking">
     <div class="booking-inner">
@@ -1047,6 +1195,7 @@
         <h4>Navigate</h4>
         <ul>
           <li><a href="#packages">Packages</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#booking">Book Now</a></li>
         </ul>
@@ -1064,7 +1213,7 @@
     <div class="footer-bottom">
       <span>© 2026 KK Mobile Car Wash &amp; Interior Detailing. All rights reserved.</span>
       <span style="display:flex; gap:1.2rem; align-items:center;">
-        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v1.6</span>
+        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v1.7</span>
         <span>Built for Hamilton, NZ 🇳🇿</span>
       </span>
     </div>
