@@ -345,18 +345,22 @@
     #packages { background: var(--black); }
 
     .pkg-category-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      letter-spacing: 0.1em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--white);
       margin-bottom: 1.2rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.2rem;
+      background: rgba(78,33,255,0.10);
+      border: 1px solid rgba(78,33,255,0.28);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       gap: 0.7rem;
     }
-    .pkg-category-title .cat-icon { font-size: 1.4rem; }
+    .pkg-category-title .cat-icon { font-size: 1.2rem; }
 
     .packages-two-col {
       display: grid;
@@ -405,19 +409,23 @@
     }
 
     .pkg-tier {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
+      opacity: 0.9;
     }
 
     .pkg-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem;
-      letter-spacing: 0.06em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0;
       margin-bottom: 0.4rem;
+      color: var(--white);
     }
 
     .pkg-price {
@@ -446,8 +454,9 @@
       display: flex;
       align-items: flex-start;
       gap: 0.6rem;
-      font-size: 0.84rem;
-      color: var(--muted);
+      font-size: 0.875rem;
+      color: #b8b8b0;
+      line-height: 1.5;
     }
     .pkg-features li::before {
       content: '✓';
@@ -948,7 +957,7 @@
 
     <!-- Disclaimer -->
     <div class="pkg-legal reveal">
-      Extra charges may apply for excessive dirt or pet hair. Final price will always be confirmed with you before we start. Fully Insured · Public Liability.
+      A surcharge may apply if the vehicle requires significantly more time or product than usual (e.g. heavily soiled interiors, excessive pet hair). The final price will always be confirmed with you before we start. Fully Insured · Public Liability · GST Inclusive.
     </div>
   </section>
 
@@ -1053,7 +1062,10 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 KK Mobile Car Wash &amp; Interior Detailing. All rights reserved.</span>
-      <span>Built for Hamilton, NZ 🇳🇿</span>
+      <span style="display:flex; gap:1.2rem; align-items:center;">
+        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v1.4</span>
+        <span>Built for Hamilton, NZ 🇳🇿</span>
+      </span>
     </div>
   </footer>
 
