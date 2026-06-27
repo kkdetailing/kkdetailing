@@ -573,6 +573,38 @@
     /* ── REVIEWS ── */
     #reviews { background: var(--black); }
 
+    .gr-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .gr-summary-score {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .gr-summary-stars {
+      color: var(--gold);
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+    }
+    .gr-summary-count {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .gr-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 2rem;
+    }
+
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1097,12 +1129,284 @@
     <div class="section-tag">// Google Reviews</div>
     <h2>What Clients Say</h2>
     <p class="section-intro">Real feedback from real customers. We let the work speak for itself.</p>
-    <div class="reveal">
-      <!-- Elfsight Google Reviews | KK Mobile Car Wash & Interior Detailing -->
-      <script src="https://elfsightcdn.com/platform.js" async></script>
-      <div class="elfsight-app-01280bd5-119d-4487-8fdf-2a3e7a8f17ae" data-elfsight-app-lazy></div>
+
+    <!-- Google rating summary -->
+    <div class="gr-summary reveal">
+      <div class="gr-summary-score">5.0</div>
+      <div class="gr-summary-stars">★★★★★</div>
+      <div class="gr-summary-count">Based on Google Reviews</div>
     </div>
-    <div class="reveal" style="text-align:center; margin-top:2rem;">
+
+    <div class="reviews-grid reveal" id="reviewsGrid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"What an absolute joy to see my car in good form again, very detailed and thorough clean. I could notice the difference straight away, not only did it look new but smelled new again. He had all the necessary equipment to get the job done, and because he's mobile he was able to come to my home address. I would most definitely recommend getting serviced by KK Mobile Car Wash and Detailing."</p>
+        <div class="review-author">
+          <div class="review-avatar">MR</div>
+          <div>
+            <div class="review-name">Michael Roberts</div>
+            <div class="review-date">2 months ago · Local Guide</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My car was absolutely filthy, years of pet fur, old food and coffee stains, a stale cigarette smell, and even moss growing in the wheel guard. KK Mobile Car Wash &amp; Interior Detailing did an amazing job. Kuray is professional, detailed, and completely non-judgemental. My car now looks better than when I first bought it. 10/10 service, highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">JP</div>
+          <div>
+            <div class="review-name">Jasmin Pakura</div>
+            <div class="review-date">5 months ago · Local Guide</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I got my Mercedes Benz interior detailed and it was amazing for the price. I have to say I was amazed with the speed, cost and workmanship, and very pleasant and professional. I will keep him as my car's detailer as I love supporting small businesses. Overall a great job. Highly recommended A++++."</p>
+        <div class="review-author">
+          <div class="review-avatar">E</div>
+          <div>
+            <div class="review-name">Elijah</div>
+            <div class="review-date">4 months ago · Local Guide</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Great mobile car detailing service. They came to my home, which made it very convenient and saved me a trip to a workshop. The work was done to a high standard with clear attention to detail inside and out. Easy, hassle-free experience and good communication. Would happily use again."</p>
+        <div class="review-author">
+          <div class="review-avatar">NS</div>
+          <div>
+            <div class="review-name">Neska Steenekamp</div>
+            <div class="review-date">3 weeks ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My car looks absolutely amazing, honestly like new again. Professional, friendly, and paid attention to every little detail. You can tell they really take pride in their work. Highly recommend to anyone wanting their car cleaned to a high standard. I'll definitely be back!"</p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div>
+            <div class="review-name">Tui Fau</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Had my ute cleaned for the first time after over a year without a good clean and it honestly looks brand new! Such a professional job and a really easy guy to get along with. Highly recommend, 10/10."</p>
+        <div class="review-author">
+          <div class="review-avatar">BP</div>
+          <div>
+            <div class="review-name">Brandon Phillips</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <!-- Extra reviews (hidden by default, revealed with Show More) -->
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Thank you! Beyond happy with my car! It feels like the first day I got it off the car yard. Super friendly guy and very reasonable prices considering he comes to you."</p>
+        <div class="review-author">
+          <div class="review-avatar">HI</div>
+          <div>
+            <div class="review-name">Haleigh Ivil</div>
+            <div class="review-date">A week ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Very thorough job, good value service."</p>
+        <div class="review-author">
+          <div class="review-avatar">MK</div>
+          <div>
+            <div class="review-name">Mohammed Kakai</div>
+            <div class="review-date">A month ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excellent and very clean workmanship, I am very pleased."</p>
+        <div class="review-author">
+          <div class="review-avatar">SN</div>
+          <div>
+            <div class="review-name">Sercan Negiz</div>
+            <div class="review-date">A month ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My car looks better than the day I bought it!! Could not recommend KK Detailing enough!"</p>
+        <div class="review-author">
+          <div class="review-avatar">HH</div>
+          <div>
+            <div class="review-name">Holly Harper</div>
+            <div class="review-date">A month ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Amazing job doing the interior of my vehicle that had been neglected for longer than I'd like to admit. Came round at very short notice, made the inside look like new and was very reasonably priced. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">JA</div>
+          <div>
+            <div class="review-name">Jordan Adams</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had my ute cleaned out this morning, it was a huge disgusting mess. After this guy was finished, our truck looks brand new. I highly recommend him, 5 stars from me."</p>
+        <div class="review-author">
+          <div class="review-avatar">SA</div>
+          <div>
+            <div class="review-name">Sinead Abraham</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Absolutely shocked at how both our cars turned out. He did an amazing job, both cars look like new. We are definitely getting him back to do them again and do our other cars."</p>
+        <div class="review-author">
+          <div class="review-avatar">AO</div>
+          <div>
+            <div class="review-name">Anna Olsen-Bullock</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Called to book an appointment for the following day, turned up on time and done a superb job. Truck looks brand new. Thank you again."</p>
+        <div class="review-author">
+          <div class="review-avatar">SG</div>
+          <div>
+            <div class="review-name">SilverFern Gaming</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I am so overwhelmed with how well my car looks! It was an absolute mess inside and outside. It looks so beautiful and clean. I highly recommend this business! He's super kind and very trustworthy. His attention to detail is outstanding, literally 1000000000 out of 10."</p>
+        <div class="review-author">
+          <div class="review-avatar">NJ</div>
+          <div>
+            <div class="review-name">Nelly Jasmine Ruka-Holder</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excellent and affordable service, arrived on time and got started with no hassles. Had the inside of my car looking like the first day I got it, really happy with how it all came together, will definitely come back again!"</p>
+        <div class="review-author">
+          <div class="review-avatar">LM</div>
+          <div>
+            <div class="review-name">Lor Mputu</div>
+            <div class="review-date">4 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"2 x interior cleans, brilliant results. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">HH</div>
+          <div>
+            <div class="review-name">Helen Hanley</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Fantastic job. Quick, thorough, easy to get along with and punctual. Definitely recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">RH</div>
+          <div>
+            <div class="review-name">Rangi Hetet</div>
+            <div class="review-date">5 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Service booked: Complete Groom Package with Pet Fur Removal &amp; Excessive Dirt. My car was absolutely filthy, years of pet fur, old food and coffee stains, mud, a stale cigarette smell, and even moss growing in the wheel guard. I'd barely cleaned it in the 5 years I've owned it. KK Mobile Car Wash &amp; Interior Detailing did an amazing job. Kuray is professional, detailed, and completely non-judgemental. My car now looks better than when I first bought it. 10/10 service, highly recommend, especially if you're time-poor or travel a lot."</p>
+        <div class="review-author">
+          <div class="review-avatar">JP</div>
+          <div>
+            <div class="review-name">Jasmin Pakura</div>
+            <div class="review-date">5 months ago · Local Guide</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card review-extra" hidden>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"He was friendly and polite to deal with and didn't rush the job. I got the Essential interior and Quick exterior combo plus headlight restoration services. It's super affordable for an interior/exterior detailed cleaning. My car looks amazing afterward. Great services, thank you."</p>
+        <div class="review-author">
+          <div class="review-avatar">GP</div>
+          <div>
+            <div class="review-name">Grace Pakura</div>
+            <div class="review-date">6 months ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="text-align:center; margin-top:1.5rem;">
+      <button id="showMoreBtn" type="button" class="btn-ghost" style="cursor:pointer;">Show More Reviews</button>
+    </div>
+
+    <div class="reveal" style="text-align:center; margin-top:1.5rem;">
       <a href="https://share.google/ohmc1S5d5inXYaeyu" target="_blank" rel="noopener"
          style="display:inline-flex; align-items:center; gap:0.7rem; padding:0.85rem 1.8rem; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--white); font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; transition:border-color 0.2s, transform 0.15s;"
          onmouseover="this.style.borderColor='rgba(78,33,255,0.5)'; this.style.transform='translateY(-2px)'"
@@ -1176,6 +1480,13 @@
         <span class="ba-label label-after">After</span>
       </div>
 
+      <div class="ba-card" onclick="this.classList.toggle('show-after')">
+        <img class="img-before" src="8b.jpeg" alt="Before" loading="lazy" />
+        <img class="img-after"  src="8a.jpeg" alt="After"  loading="lazy" />
+        <span class="ba-label label-before">Before</span>
+        <span class="ba-label label-after">After</span>
+      </div>
+
     </div>
   </section>
 
@@ -1241,7 +1552,7 @@
     <div class="footer-bottom">
       <span>© 2026 KK Mobile Car Wash &amp; Interior Detailing. All rights reserved.</span>
       <span style="display:flex; gap:1.2rem; align-items:center;">
-        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v2.0</span>
+        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v2.4</span>
         <span>Built for Hamilton, NZ 🇳🇿</span>
       </span>
     </div>
@@ -1265,6 +1576,15 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => obs.observe(el));
+
+    // Show More Reviews toggle
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener('click', () => {
+        document.querySelectorAll('.review-extra').forEach(el => el.hidden = false);
+        showMoreBtn.style.display = 'none';
+      });
+    }
 
     // Active nav highlight on scroll
     const sections = document.querySelectorAll('section[id]');
