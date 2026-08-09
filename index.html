@@ -906,6 +906,105 @@
       transform: translateY(0);
     }
 
+    /* ── HOLIDAY BANNER ── */
+    #holiday-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: linear-gradient(90deg, #1a0a4a, #2d0f8a, #1a0a4a);
+      border-bottom: 1px solid rgba(78,33,255,0.6);
+      padding: 0.65rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    #holiday-banner.hidden {
+      display: none;
+    }
+
+    .banner-content {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .banner-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+    .banner-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #e8e0ff;
+      line-height: 1.4;
+    }
+
+    .banner-text strong { color: #fff; font-weight: 700; }
+
+    .banner-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .banner-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .banner-btn:hover { opacity: 0.85; }
+
+    .banner-btn-fb {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .banner-btn-ig {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+    }
+
+    .banner-close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      flex-shrink: 0;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: #fff; }
+
+    /* Push nav down when banner is visible */
+    body.banner-visible nav {
+      top: 42px;
+    }
+
+    @media (max-width: 640px) {
+      .banner-text { font-size: 0.78rem; }
+      .banner-btn  { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+      body.banner-visible nav { top: auto; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -925,6 +1024,27 @@
 
 </head>
 <body>
+
+  <!-- HOLIDAY BANNER -->
+  <div id="holiday-banner">
+    <div class="banner-content">
+      <span class="banner-icon">🏖️</span>
+      <span class="banner-text">
+        <strong>We're on holiday Aug 12–25.</strong> Back on the 25th — message us now to book your spot!
+      </span>
+    </div>
+    <div class="banner-links">
+      <a href="https://m.me/kkdetailinghamilton" target="_blank" rel="noopener" class="banner-btn banner-btn-fb"
+         onclick="gtag('event', 'conversion', {'send_to': 'AW-17943193729/lc3nCLuOxL0cEIHR_etC'})">
+        💬 Facebook
+      </a>
+      <a href="https://ig.me/m/kkdetailinghamilton" target="_blank" rel="noopener" class="banner-btn banner-btn-ig"
+         onclick="gtag('event', 'conversion', {'send_to': 'AW-17943193729/lc3nCLuOxL0cEIHR_etC'})">
+        📸 Instagram
+      </a>
+    </div>
+    <button class="banner-close" onclick="closeBanner()" aria-label="Close">✕</button>
+  </div>
 
   <!-- NAV -->
   <nav>
@@ -1141,12 +1261,25 @@
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Amazing job! Highly recommend!!!"</p>
+        <div class="review-author">
+          <div class="review-avatar">ML</div>
+          <div>
+            <div class="review-name">Mark le Grove</div>
+            <div class="review-date">3 days ago</div>
+          </div>
+        </div>
+        <div class="google-logo">🇬 Google Review</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
         <p class="review-text">"Excellent service. My car looks clean and fresh inside and out. The team was professional, arrived on time, and paid great attention to detail. The convenience of their mobile service made everything easy. Highly recommended."</p>
         <div class="review-author">
           <div class="review-avatar">MC</div>
           <div>
             <div class="review-name">Martin C</div>
-            <div class="review-date">5 days ago · Local Guide</div>
+            <div class="review-date">2 weeks ago · Local Guide</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1159,7 +1292,7 @@
           <div class="review-avatar">MR</div>
           <div>
             <div class="review-name">Michael Roberts</div>
-            <div class="review-date">3 months ago · Local Guide</div>
+            <div class="review-date">about 4 months ago · Local Guide</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1172,7 +1305,7 @@
           <div class="review-avatar">JP</div>
           <div>
             <div class="review-name">Jasmin Pakura</div>
-            <div class="review-date">6 months ago · Local Guide</div>
+            <div class="review-date">about 7 months ago · Local Guide</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1185,7 +1318,7 @@
           <div class="review-avatar">E</div>
           <div>
             <div class="review-name">Elijah</div>
-            <div class="review-date">5 months ago · Local Guide</div>
+            <div class="review-date">about 6 months ago · Local Guide</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1204,20 +1337,20 @@
         <div class="google-logo">🇬 Google Review</div>
       </div>
 
-      <div class="review-card">
+      <!-- Extra reviews -->
+      <div class="review-card review-extra" hidden>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"My car looks absolutely amazing, honestly like new again. Professional, friendly, and paid attention to every little detail. You can tell they really take pride in their work. Highly recommend to anyone wanting their car cleaned to a high standard. I'll definitely be back!"</p>
         <div class="review-author">
           <div class="review-avatar">T</div>
           <div>
             <div class="review-name">Tui Fau</div>
-            <div class="review-date">3 months ago</div>
+            <div class="review-date">about 4 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
       </div>
 
-      <!-- Extra reviews -->
       <div class="review-card review-extra" hidden>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Thank you! Beyond happy with my car! It feels like the first day I got it off the car yard. Super friendly guy and very reasonable prices considering he comes to you."</p>
@@ -1225,7 +1358,7 @@
           <div class="review-avatar">HI</div>
           <div>
             <div class="review-name">Haleigh Ivil</div>
-            <div class="review-date">5 weeks ago</div>
+            <div class="review-date">about 2 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1238,7 +1371,7 @@
           <div class="review-avatar">MK</div>
           <div>
             <div class="review-name">Mohammed Kakai</div>
-            <div class="review-date">2 months ago</div>
+            <div class="review-date">about 3 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1251,7 +1384,7 @@
           <div class="review-avatar">SN</div>
           <div>
             <div class="review-name">Sercan Negiz</div>
-            <div class="review-date">2 months ago</div>
+            <div class="review-date">about 3 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1264,7 +1397,7 @@
           <div class="review-avatar">HH</div>
           <div>
             <div class="review-name">Holly Harper</div>
-            <div class="review-date">2 months ago</div>
+            <div class="review-date">about 3 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1277,7 +1410,7 @@
           <div class="review-avatar">JA</div>
           <div>
             <div class="review-name">Jordan Adams</div>
-            <div class="review-date">3 months ago</div>
+            <div class="review-date">about 4 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1290,7 +1423,7 @@
           <div class="review-avatar">SA</div>
           <div>
             <div class="review-name">Sinead Abraham</div>
-            <div class="review-date">3 months ago</div>
+            <div class="review-date">about 4 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1303,7 +1436,7 @@
           <div class="review-avatar">AO</div>
           <div>
             <div class="review-name">Anna Olsen-Bullock</div>
-            <div class="review-date">5 months ago</div>
+            <div class="review-date">about 6 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1316,7 +1449,7 @@
           <div class="review-avatar">SG</div>
           <div>
             <div class="review-name">SilverFern Gaming</div>
-            <div class="review-date">5 months ago</div>
+            <div class="review-date">about 6 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1329,7 +1462,7 @@
           <div class="review-avatar">NJ</div>
           <div>
             <div class="review-name">Nelly Jasmine Ruka-Holder</div>
-            <div class="review-date">5 months ago</div>
+            <div class="review-date">about 6 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1342,7 +1475,7 @@
           <div class="review-avatar">LM</div>
           <div>
             <div class="review-name">Lor Mputu</div>
-            <div class="review-date">5 months ago</div>
+            <div class="review-date">about 6 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1355,7 +1488,7 @@
           <div class="review-avatar">BP</div>
           <div>
             <div class="review-name">Brandon Phillips</div>
-            <div class="review-date">6 months ago</div>
+            <div class="review-date">about 7 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1368,7 +1501,7 @@
           <div class="review-avatar">HH</div>
           <div>
             <div class="review-name">Helen Hanley</div>
-            <div class="review-date">6 months ago</div>
+            <div class="review-date">about 7 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1381,7 +1514,7 @@
           <div class="review-avatar">RH</div>
           <div>
             <div class="review-name">Rangi Hetet</div>
-            <div class="review-date">6 months ago</div>
+            <div class="review-date">about 7 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1394,7 +1527,7 @@
           <div class="review-avatar">JP</div>
           <div>
             <div class="review-name">Jasmin Pakura</div>
-            <div class="review-date">6 months ago · Local Guide</div>
+            <div class="review-date">about 7 months ago · Local Guide</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1407,7 +1540,7 @@
           <div class="review-avatar">GP</div>
           <div>
             <div class="review-name">Grace Pakura</div>
-            <div class="review-date">7 months ago</div>
+            <div class="review-date">about 8 months ago</div>
           </div>
         </div>
         <div class="google-logo">🇬 Google Review</div>
@@ -1586,7 +1719,7 @@
     <div class="footer-bottom">
       <span>© 2026 KK Mobile Car Wash &amp; Interior Detailing. All rights reserved.</span>
       <span style="display:flex; gap:1.2rem; align-items:center;">
-        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v2.6</span>
+        <span style="color:#3a3a3a; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;">v2.8</span>
         <span>Built for Hamilton, NZ 🇳🇿</span>
       </span>
     </div>
@@ -1610,6 +1743,20 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => obs.observe(el));
+
+    // Holiday banner
+    (function() {
+      const banner = document.getElementById('holiday-banner');
+      if (banner) document.body.classList.add('banner-visible');
+    })();
+
+    function closeBanner() {
+      const banner = document.getElementById('holiday-banner');
+      if (banner) {
+        banner.classList.add('hidden');
+        document.body.classList.remove('banner-visible');
+      }
+    }
 
     // Show More Reviews toggle
     const showMoreBtn = document.getElementById('showMoreBtn');
